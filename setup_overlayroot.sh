@@ -11,7 +11,7 @@ check_status() {
         value=$(grep '^overlayroot=' "$overlay_conf" | cut -d= -f2 | tr -d '"')
         if [[ "$value" == "tmpfs" ]]; then
             echo "Enabled"
-        elif [[ -n "$value" ]]; then
+        elif [[ "$value" == "disabled" ]]; then
             echo "Installed but not enabled"
         fi
     else
@@ -47,7 +47,7 @@ uninstall_overlayroot() {
 
 # Menu utama
 while true; do
-    echo "\n==============="
+    echo "==============="
     echo "Menu OVERLAYROOT"
     echo "==============="
     echo "Status: $(check_status)"
