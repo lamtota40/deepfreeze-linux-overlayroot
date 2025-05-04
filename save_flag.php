@@ -6,7 +6,7 @@
 $host   = 'sql304.byethost7.com';       // database host
 $db     = 'b7_38901489_overlayroot';   // database name
 $user   = 'b7_38901489';       // database username
-$pass   = 'ch1ndy12';       // database password
+$pass   = 'okde';       // database password
 $charset= 'utf8mb4';         // character set
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
