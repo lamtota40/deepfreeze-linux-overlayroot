@@ -7,12 +7,15 @@ set -e
 overlay_conf="/etc/overlayroot.conf"
 
 check_status() {
-    if grep -q '^overlayroot=' "$overlay_conf" 2>/dev/null; then
-        echo "Enabled"
-    elif [[ -f "$overlay_conf" ]]; then
-        echo "Disabled"
+    if [[ -f "$overlay_conf" ]]; then
+        value=$(grep '^overlayroot=' "$overlay_conf" | cut -d= -f2 | tr -d '"')
+        if [[ "$value" == "tmpfs" ]]; then
+            echo "Enabled"
+        elif [[ -n "$value" ]]; then
+            echo "Installed but not enabled"
+        fi
     else
-        echo "Not Installed"
+        echo "Installed but no config file"
     fi
 }
 
