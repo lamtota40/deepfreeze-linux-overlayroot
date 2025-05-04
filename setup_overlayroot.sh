@@ -11,7 +11,7 @@ check_status() {
         value=$(grep '^overlayroot=' "$overlay_conf" | cut -d= -f2 | tr -d '"')
         if [[ "$value" == "tmpfs" ]]; then
             echo "Enabled"
-        elif [[ "$value" == "disabled" ]]; then
+        elif [[ "$value" == "" ]]; then
             echo "Installed but not enabled"
         else
             echo "Installed with unknown config"
