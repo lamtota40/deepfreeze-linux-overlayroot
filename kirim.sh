@@ -3,7 +3,7 @@ set -euo pipefail
 
 # —————— Konfigurasi ——————
 UUID_FILE="/etc/uuidv4.ini"       # File yang berisi UUID
-SAVE_URL="https://yourdomain.com/save_flag.php"  # Endpoint PHP untuk menyimpan flag
+SAVE_URL="http://toxa.byethost7.com/save_flag.php"  # Endpoint PHP untuk menyimpan flag
 OR_CONF="/etc/overlayroot.conf"  # File overlayroot.conf
 # ————————————————————————
 
