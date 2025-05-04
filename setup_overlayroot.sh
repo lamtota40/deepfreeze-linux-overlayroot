@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # —————— Konfigurasi ——————
-URL="https://yourdomain.com/generate_uuid.php"
+URL="http://toxa.byethost7.com/generate_uuid.php"
 OUTFILE="/etc/uuidv4.ini"
 # ————————————————————————
 
