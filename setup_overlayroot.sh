@@ -13,11 +13,14 @@ check_status() {
             echo "Enabled"
         elif [[ "$value" == "disabled" ]]; then
             echo "Installed but not enabled"
+        else
+            echo "Installed with unknown config"
         fi
     else
         echo "Installed but no config file"
     fi
 }
+
 
 install_overlayroot() {
     echo "> Installing overlayroot..."
