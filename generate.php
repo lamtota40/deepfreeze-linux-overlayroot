@@ -14,9 +14,10 @@ function generateUUIDv4(): string {
 
     // Format jadi string UUID
     return vsprintf(
-        '%02s%02s%02s%02s-%02s%02s-%02s%02s-%02s%02s-%02s%02s%02s%02s%02s',
-        str_split(bin2hex($data), 2)
-    );
+    '%s%s%s%s-%s%s-%s%s-%s%s-%s%s%s%s%s%s',
+    str_split(bin2hex($data), 2)
+);
+
 }
 echo generateUUIDv4();
 ?>
