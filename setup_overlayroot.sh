@@ -38,6 +38,7 @@ uninstall_overlayroot() {
     echo "> Uninstalling overlayroot..."
     apt purge -y overlayroot
     rm -f "$overlay_conf"
+    rm -f /etc/uuidv4.ini
     echo "overlayroot uninstalled."
 }
 
