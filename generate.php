@@ -1,7 +1,6 @@
 <?php
 /**
  * Generate a UUID v4 (random).
- *
  * @return string 36‐character UUID, e.g. "3f0e3a2c-1b4f-4d5e-9a7b-6e8f9c0d1b2a"
  */
 function generateUUIDv4(): string {
@@ -22,3 +21,4 @@ function generateUUIDv4(): string {
 
 // Contoh penggunaan:
 echo generateUUIDv4();
+?>
