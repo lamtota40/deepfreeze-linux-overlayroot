@@ -3,10 +3,10 @@
 // Simple PHP endpoint to receive UUID and flag, then save to MySQL database
 
 // --- Database configuration ---
-$host   = 'localhost';       // database host
-$db     = 'your_database';   // database name
-$user   = 'your_user';       // database username
-$pass   = 'your_pass';       // database password
+$host   = 'sql304.byethost7.com';       // database host
+$db     = 'b7_38901489_overlayroot';   // database name
+$user   = 'b7_38901489';       // database username
+$pass   = 'ch1ndy12';       // database password
 $charset= 'utf8mb4';         // character set
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
