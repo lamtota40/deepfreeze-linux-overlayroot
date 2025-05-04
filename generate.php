@@ -18,7 +18,5 @@ function generateUUIDv4(): string {
         str_split(bin2hex($data), 2)
     );
 }
-
-// Contoh penggunaan:
 echo generateUUIDv4();
 ?>
