@@ -43,3 +43,6 @@ uuid=$UUID
 EOF
 
 echo "UUID baru disimpan di $OUTFILE: $UUID"
+
+
+###################
