@@ -10,31 +10,20 @@ check_status() {
 #!/bin/bash
 
 # Cek apakah file /etc/overlayroot.conf ada
-if [ -f /etc/overlayroot.conf ]; then
-    # Membaca isi dari /etc/overlayroot.conf
-    overlayroot_value=$(grep -E '^overlayroot=' /etc/overlayroot.conf | cut -d'=' -f2)
+if [ -f "$overlay_conf" ]; then
+    value=$(grep -E '^overlayroot=' "$overlay_conf" | cut -d'=' -f2)
 
-    if [ "$overlayroot_value" == "" ]; then
+    if [ "$value" == "" ]; then
         echo "Sudah terinstal, status: disable"
-    else
+    elif [ "$value" == "tmpfs" ]; then
         echo "Sudah terinstal, status: enable"
-    fi
+    else
+        echo "Sudah terinstal, status: unknown"
+     if
 else
     echo "Belum terinstal"
 fi
 
-    if [[ -f "$overlay_conf" ]]; then
-        value=$(grep '^overlayroot=' "$overlay_conf" | cut -d= -f2 | tr -d '"')
-        if [[ "$value" == "tmpfs" ]]; then
-            echo "Enabled"
-        elif [[ "$value" == "" ]]; then
-            echo "Installed but not enabled"
-        else
-            echo "Installed with unknown config"
-        fi
-    else
-        echo "Installed but no config file"
-    fi
 }
 
 
