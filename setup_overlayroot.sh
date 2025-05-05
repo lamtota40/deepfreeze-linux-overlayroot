@@ -7,16 +7,16 @@ set -e
 overlay_conf="/etc/overlayroot.conf"
 
 check_status() {
-if [[ -f "$overlay_conf" ]]; then
+if [ -f "$overlay_conf" ]; then
     value=$(grep -E '^overlayroot=' "$overlay_conf" | cut -d'=' -f2)
 
-    if [[ "$value" == "" ]]; then
+    if [ "$value" == "" ]; then
         echo "Sudah terinstal, status: disable"
-    elif [[ "$value" == "tmpfs" ]]; then
+    elif [ "$value" == "tmpfs" ]; then
         echo "Sudah terinstal, status: enable"
     else
         echo "Sudah terinstal, status: unknown"
-     if
+     fi
 else
     echo "Belum terinstal"
 fi
