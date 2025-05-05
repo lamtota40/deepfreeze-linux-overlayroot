@@ -8,7 +8,7 @@ pause() {
 rescueboot() {
 sudo apt install grml-rescueboot -y
 mkdir /etc/grml/partconf
-sudo bash -c "echo 'CUSTOM_BOOTOPTIONS=\"ssh=pas123 vnc=pas123 dns=8.8.8.8,8.8.4.4 netscript=raw.githubusercontent.com/lamtota40/tes/main/setup-ngrok.sh startx toram\"' >> /etc/default/grml-rescueboot"
+sudo bash -c "echo 'CUSTOM_BOOTOPTIONS=\"ssh=pas123 dns=8.8.8.8,8.8.4.4 netscript=raw.githubusercontent.com/lamtota40/deepfreeze-linux-overlayroot/main/auto-run-grml.sh toram\"' >> /etc/default/grml-rescueboot"
 sudo wget https://raw.githubusercontent.com/lamtota40/tes/main/setup-ngrok.sh -P /etc/grml/partconf
     if [ ! -f /boot/grml/grml32-small_2024.02.iso ]; then
     wget https://mirrors.aliyun.com/grml/grml32-small_2024.02.iso -P /boot/grml/
