@@ -2,6 +2,9 @@
 
 set -e
 overlay_conf="/etc/overlayroot.conf"
+pause() {
+  read -p "Press Enter to return to the menu..."
+}
 
 check_status() {
 if ! command -v overlayroot-chroot >/dev/null 2>&1; then
@@ -20,6 +23,7 @@ install_overlayroot() {
     echo "> Installing overlayroot..."
     apt update && apt install -y overlayroot
     echo "overlayroot installed."
+    pause
 }
 
 enable_overlayroot() {
