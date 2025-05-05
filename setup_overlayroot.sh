@@ -1,23 +1,19 @@
 #!/bin/bash
 
-# Menu sederhana untuk mengelola overlayroot sebagai pengganti fsprotect
-
 set -e
-
 overlay_conf="/etc/overlayroot.conf"
 
 check_status() {
-if [ -f "$overlay_conf" ]; then
-    value=$(grep '^overlayroot=' "$overlay_conf" | cut -d= -f2 | tr -d '"')
+if ! command -v overlayroot-chroot >/dev/null 2>&1; then
+    echo "Belum Terinstal"
+else
+    value=$(overlayroot-chroot cat /etc/overlayroot.conf 2>/dev/null | grep '^overlayroot=' | cut -d= -f2 | tr -d '"')
     if [[ "$value" == "tmpfs" || "$value" == "overlay" ]]; then
         echo "Sudah Terinstal (Enable)"
     else
         echo "Sudah Terinstal (Disable)"
-     fi
-else
-    echo "Belum terinstal"
+    fi
 fi
-
 }
 
 install_overlayroot() {
