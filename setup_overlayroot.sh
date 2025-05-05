@@ -7,6 +7,22 @@ set -e
 overlay_conf="/etc/overlayroot.conf"
 
 check_status() {
+#!/bin/bash
+
+# Cek apakah file /etc/overlayroot.conf ada
+if [ -f /etc/overlayroot.conf ]; then
+    # Membaca isi dari /etc/overlayroot.conf
+    overlayroot_value=$(grep -E '^overlayroot=' /etc/overlayroot.conf | cut -d'=' -f2)
+
+    if [ "$overlayroot_value" == "" ]; then
+        echo "Sudah terinstal, status: disable"
+    else
+        echo "Sudah terinstal, status: enable"
+    fi
+else
+    echo "Belum terinstal"
+fi
+
     if [[ -f "$overlay_conf" ]]; then
         value=$(grep '^overlayroot=' "$overlay_conf" | cut -d= -f2 | tr -d '"')
         if [[ "$value" == "tmpfs" ]]; then
