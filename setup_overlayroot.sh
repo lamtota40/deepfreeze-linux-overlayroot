@@ -6,7 +6,11 @@ pause() {
   read -p "Press Enter to return to the menu..."
 }
 rescueboot() {
-  wget https://mirrors.aliyun.com/grml/grml32-small_2024.02.iso
+sudo apt install grml-rescueboot
+    if [ ! -f /boot/grml/grml32-small_2024.02.iso ]; then
+    wget https://mirrors.aliyun.com/grml/grml32-small_2024.02.iso -O /boot/grml/grml32-small_2024.02.iso
+    fi
+  
   }
 
 check_status() {
