@@ -7,9 +7,6 @@ set -e
 overlay_conf="/etc/overlayroot.conf"
 
 check_status() {
-#!/bin/bash
-
-# Cek apakah file /etc/overlayroot.conf ada
 if [ -f "$overlay_conf" ]; then
     value=$(grep -E '^overlayroot=' "$overlay_conf" | cut -d'=' -f2)
 
