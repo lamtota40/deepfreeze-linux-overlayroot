@@ -66,7 +66,7 @@ while true; do
     echo "Menu OVERLAYROOT"
     echo "==============="
     echo "Status: $(check_status)"
-    echo
+    echo ""
     echo "1. Install OverlayRoot"
     echo "2. Enable FREEZE"
     echo "3. Disable FREEZE"
