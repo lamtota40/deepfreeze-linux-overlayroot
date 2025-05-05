@@ -28,8 +28,10 @@ install_overlayroot() {
 
 enable_overlayroot() {
     echo "> Enabling overlayroot..."
-    sed -i "/^overlayroot_cfgdisk/d" "$overlay_conf"
-    sed -i "/^overlayroot/d" "$overlay_conf"
+    if [ ! -f /etc/overlayroot.conf.bak ]; then
+    cp "$overlay_conf" /etc/overlayroot.conf.bak
+    fi
+    echo -n > "$overlay_conf"
     echo 'overlayroot="tmpfs"' > "$overlay_conf"
     echo "overlayroot enabled. Please reboot to take effect."
 }
