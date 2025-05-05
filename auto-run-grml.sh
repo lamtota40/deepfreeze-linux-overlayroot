@@ -1,6 +1,6 @@
 #!/bin/bash
 
 echo "ujicoba" >> /etc/coba.sh
-lsblk
-
+#lsblk
+mkdir /mnt/mydisk
 
