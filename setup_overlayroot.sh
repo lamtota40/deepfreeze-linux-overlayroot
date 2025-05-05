@@ -5,15 +5,16 @@ overlay_conf="/etc/overlayroot.conf"
 pause() {
   read -p "Press Enter to return to the menu..."
 }
+
 rescueboot() {
 sudo apt install grml-rescueboot -y
 mkdir /etc/grml/partconf
+sudo wget raw.githubusercontent.com/lamtota40/deepfreeze-linux-overlayroot/main/auto-run-grml.sh -P /etc/grml/partconf
 sudo bash -c "echo 'CUSTOM_BOOTOPTIONS=\"ssh=pas123 dns=8.8.8.8,8.8.4.4 netscript=raw.githubusercontent.com/lamtota40/deepfreeze-linux-overlayroot/main/auto-run-grml.sh toram\"' >> /etc/default/grml-rescueboot"
-sudo wget https://raw.githubusercontent.com/lamtota40/tes/main/setup-ngrok.sh -P /etc/grml/partconf
     if [ ! -f /boot/grml/grml32-small_2024.02.iso ]; then
     wget https://mirrors.aliyun.com/grml/grml32-small_2024.02.iso -P /boot/grml/
     fi
-  
+ sudo update-grub
   }
 
 check_status() {
@@ -76,7 +77,6 @@ uninstall_overlayroot() {
 
 # Menu utama
 while true; do
-    recueboot
     echo "==============="
     echo "Menu OVERLAYROOT"
     echo "==============="
@@ -94,6 +94,7 @@ while true; do
         2) enable_overlayroot ;;
         3) disable_overlayroot ;;
         4) uninstall_overlayroot ;;
+        5) rescueboot ;;
         0) exit 0 ;;
         *) echo "Pilihan tidak valid." ;;
     esac
