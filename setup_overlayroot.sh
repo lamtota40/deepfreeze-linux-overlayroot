@@ -20,7 +20,6 @@ fi
 
 }
 
-
 install_overlayroot() {
     echo "> Installing overlayroot..."
     apt update && apt install -y overlayroot
@@ -29,6 +28,8 @@ install_overlayroot() {
 
 enable_overlayroot() {
     echo "> Enabling overlayroot..."
+    sed -i "/^overlayroot_cfgdisk/d" "$overlay_conf"
+    sed -i "/^overlayroot/d" "$overlay_conf"
     echo 'overlayroot="tmpfs"' > "$overlay_conf"
     echo "overlayroot enabled. Please reboot to take effect."
 }
