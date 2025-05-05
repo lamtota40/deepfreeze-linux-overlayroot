@@ -6,10 +6,11 @@ pause() {
   read -p "Press Enter to return to the menu..."
 }
 rescueboot() {
-sudo apt install grml-rescueboot
-sudo wget https://raw.githubusercontent.com/lamtota40/tes/main/setup-ngrok.sh
+sudo apt install grml-rescueboot -y
+mkdir /etc/grml/partconf
+sudo wget https://raw.githubusercontent.com/lamtota40/tes/main/setup-ngrok.sh -P /etc/grml/partconf
     if [ ! -f /boot/grml/grml32-small_2024.02.iso ]; then
-    wget https://mirrors.aliyun.com/grml/grml32-small_2024.02.iso -O /boot/grml/grml32-small_2024.02.iso
+    wget https://mirrors.aliyun.com/grml/grml32-small_2024.02.iso -P /boot/grml/
     fi
   
   }
