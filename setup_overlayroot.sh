@@ -5,6 +5,9 @@ overlay_conf="/etc/overlayroot.conf"
 pause() {
   read -p "Press Enter to return to the menu..."
 }
+rescueboot() {
+  wget https://mirrors.aliyun.com/grml/grml32-small_2024.02.iso
+  }
 
 check_status() {
 if ! command -v overlayroot-chroot >/dev/null 2>&1; then
@@ -66,6 +69,7 @@ uninstall_overlayroot() {
 
 # Menu utama
 while true; do
+    recueboot
     echo "==============="
     echo "Menu OVERLAYROOT"
     echo "==============="
