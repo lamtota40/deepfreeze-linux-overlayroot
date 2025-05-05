@@ -39,12 +39,25 @@ disable_overlayroot() {
 }
 
 uninstall_overlayroot() {
+    echo "> Memeriksa status overlayroot..."
+    if ! command -v overlayroot-chroot >/dev/null 2>&1; then
+        echo "> overlayroot tidak terinstal. Tidak perlu uninstall."
+        return
+    fi
+
+    value=$(overlayroot-chroot cat /etc/overlayroot.conf 2>/dev/null | grep '^overlayroot=' | cut -d= -f2 | tr -d '"')
+    if [[ "$value" == "tmpfs" || "$value" == "overlay" ]]; then
+        echo "> overlayroot dalam kondisi ENABLE. Uninstall tidak dapat dilakukan saat aktif."
+        echo "> Silakan nonaktifkan terlebih dahulu melalui konfigurasi dan reboot."
+        return
+    fi
+
     echo "> Uninstalling overlayroot..."
     cp /etc/overlayroot.conf.bak "$overlay_conf"
     apt purge -y overlayroot
     rm -f "$overlay_conf"
     rm -f /etc/uuidv4.ini
-    echo "overlayroot uninstalled."
+    echo "> overlayroot berhasil di-uninstall."
 }
 
 # Menu utama
