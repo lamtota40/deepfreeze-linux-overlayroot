@@ -10,7 +10,8 @@ check_status() {
 if [ -f "$overlay_conf" ]; then
     value=$(grep -E '^overlayroot=' "$overlay_conf" | cut -d'=' -f2)
 
-    if [ "$value" == "" ]; then
+    
+if grep -q '^overlayroot=""' "$overlay_conf"; then
         echo "Sudah terinstal, status: disable"
     elif [ "$value" == "tmpfs" ]; then
         echo "Sudah terinstal, status: enable"
