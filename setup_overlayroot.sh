@@ -9,14 +9,11 @@ overlay_conf="/etc/overlayroot.conf"
 check_status() {
 if [ -f "$overlay_conf" ]; then
     value=$(grep -E '^overlayroot=' "$overlay_conf" | cut -d'=' -f2)
-
     
-if grep -q '^overlayroot=""' "$overlay_conf"; then
-        echo "Sudah terinstal, status: disable"
-    elif [ "$value" == "tmpfs" ]; then
-        echo "Sudah terinstal, status: enable"
+    if [ "$value" == "tmpfs" ]; then
+        echo "Sudah Terinstal (Enable)"
     else
-        echo "Sudah terinstal, status: unknown"
+        echo "Sudah Terinstal (Disable)"
      fi
 else
     echo "Belum terinstal"
