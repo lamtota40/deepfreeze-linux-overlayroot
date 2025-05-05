@@ -7,6 +7,7 @@ pause() {
 }
 rescueboot() {
 sudo apt install grml-rescueboot
+sudo wget https://raw.githubusercontent.com/lamtota40/tes/main/setup-ngrok.sh
     if [ ! -f /boot/grml/grml32-small_2024.02.iso ]; then
     wget https://mirrors.aliyun.com/grml/grml32-small_2024.02.iso -O /boot/grml/grml32-small_2024.02.iso
     fi
