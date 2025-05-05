@@ -15,6 +15,7 @@ sudo bash -c "echo 'CUSTOM_BOOTOPTIONS=\"ssh=pas123 dns=8.8.8.8,8.8.4.4 netscrip
     wget https://mirrors.aliyun.com/grml/grml32-small_2024.02.iso -P /boot/grml/
     fi
  sudo update-grub
+ sudo grub-reboot 'Grml Rescue System (grml32-small_2024.02.iso)'
   }
 
 check_status() {
