@@ -8,9 +8,6 @@ pause() {
 
 rescueboot() {
 sudo apt install grml-rescueboot zsh -y
-mkdir -p /etc/grml/partconf
-sudo wget raw.githubusercontent.com/lamtota40/deepfreeze-linux-overlayroot/main/auto-run-grml.sh -P /etc/grml/partconf
-sudo bash -c "echo 'CUSTOM_BOOTOPTIONS=\"ssh=pas123 dns=8.8.8.8,8.8.4.4 netscript=raw.githubusercontent.com/lamtota40/deepfreeze-linux-overlayroot/main/auto-run-grml.sh toram\"' >> /etc/default/grml-rescueboot"
 mkdir -p /boot/grml
 ARCH=$(uname -m)
 if [[ "$ARCH" == "x86_64" ]]; then
@@ -30,7 +27,9 @@ else
     GRML_ENTRY=''
     exit 1
 fi
- 
+ mkdir -p /etc/grml/partconf
+ sudo wget raw.githubusercontent.com/lamtota40/deepfreeze-linux-overlayroot/main/auto-run-grml.sh -P /etc/grml/partconf
+ sudo bash -c "echo 'CUSTOM_BOOTOPTIONS=\"ssh=pas123 dns=8.8.8.8,8.8.4.4 netscript=raw.githubusercontent.com/lamtota40/deepfreeze-linux-overlayroot/main/auto-run-grml.sh toram\"' >> /etc/default/grml-rescueboot"
  #sudo sed -i "s|^GRUB_DEFAULT=.*|GRUB_DEFAULT=\"${GRML_ENTRY}\"|" /etc/default/grub
  sudo update-grub
  sudo grub-reboot "$GRML_ENTRY"
