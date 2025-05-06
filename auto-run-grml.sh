@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#echo "ujicoba" >> /etc/coba.sh
 #lsblk
 mkdir -p /mnt/vda2
 mount /dev/vda2 /mnt/vda2
