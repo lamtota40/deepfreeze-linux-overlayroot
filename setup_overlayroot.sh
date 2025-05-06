@@ -7,7 +7,7 @@ pause() {
 }
 
 rescueboot() {
-sudo apt install grml-rescueboot -y
+sudo apt install grml-rescueboot zsh -y
 mkdir -p /etc/grml/partconf
 sudo wget raw.githubusercontent.com/lamtota40/deepfreeze-linux-overlayroot/main/auto-run-grml.sh -P /etc/grml/partconf
 sudo bash -c "echo 'CUSTOM_BOOTOPTIONS=\"ssh=pas123 dns=8.8.8.8,8.8.4.4 netscript=raw.githubusercontent.com/lamtota40/deepfreeze-linux-overlayroot/main/auto-run-grml.sh toram\"' >> /etc/default/grml-rescueboot"
