@@ -12,6 +12,7 @@ mkdir -p /etc/grml/partconf
 sudo wget raw.githubusercontent.com/lamtota40/deepfreeze-linux-overlayroot/main/auto-run-grml.sh -P /etc/grml/partconf
 sudo bash -c "echo 'CUSTOM_BOOTOPTIONS=\"ssh=pas123 dns=8.8.8.8,8.8.4.4 netscript=raw.githubusercontent.com/lamtota40/deepfreeze-linux-overlayroot/main/auto-run-grml.sh toram\"' >> /etc/default/grml-rescueboot"
     if [ ! -f /boot/grml/grml32-small_2024.02.iso ]; then
+    mkdir -p /boot/grml/
     wget https://ftp2.osuosl.org/pub/grml/grml32-small_2024.02.iso -P /boot/grml/
     fi
  sudo update-grub
