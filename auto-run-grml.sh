@@ -6,5 +6,5 @@ lsblk
 #echo -n > /mnt/vda2/etc/overlayroot.conf
 #echo 'overlayroot_cfgdisk="disabled"' > /mnt/vda2/etc/overlayroot.conf
 #echo 'overlayroot="tmpfs"' > /mnt/vda2/etc/overlayroot.conf
-#grub-reboot 'Ubuntu'
+#sudo sed -i 's|^GRUB_DEFAULT=.*|GRUB_DEFAULT=0|' /etc/default/grub
 #reboot
