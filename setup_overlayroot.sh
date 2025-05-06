@@ -31,9 +31,25 @@ else
     exit 1
 fi
  
- sudo sed -i "s|^GRUB_DEFAULT=.*|GRUB_DEFAULT=\"${GRML_ENTRY}\"|" /etc/default/grub
+ #sudo sed -i "s|^GRUB_DEFAULT=.*|GRUB_DEFAULT=\"${GRML_ENTRY}\"|" /etc/default/grub
  sudo update-grub
- #sudo grub-reboot "$GRML_ENTRY"
+ sudo grub-reboot "$GRML_ENTRY"
+
+cat <<EOF > /etc/systemd/system/autobootgrml.service
+[Unit]
+Description=Always set boot to GRML
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/grub-reboot "$GRML_ENTRY"
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+systemctl daemon-reload
+systemctl enable autobootgrml.service
   }
 
 check_status() {
