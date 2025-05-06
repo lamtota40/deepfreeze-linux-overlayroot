@@ -31,9 +31,9 @@ else
     exit 1
 fi
  
- #sudo sed -i "s|^GRUB_DEFAULT=.*|GRUB_DEFAULT=\"${GRML_ENTRY}\"|" /etc/default/grub
+ sudo sed -i "s|^GRUB_DEFAULT=.*|GRUB_DEFAULT=\"${GRML_ENTRY}\"|" /etc/default/grub
  sudo update-grub
- sudo grub-reboot "$GRML_ENTRY"
+ #sudo grub-reboot "$GRML_ENTRY"
   }
 
 check_status() {
