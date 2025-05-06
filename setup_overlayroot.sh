@@ -27,6 +27,7 @@ elif [[ "$ARCH" == "i386" || "$ARCH" == "i686" ]]; then
     GRML_ENTRY='Grml Rescue System (grml32-small_2024.02.iso)'
 else
     echo "Arsitektur tidak dikenali: $ARCH"
+    GRML_ENTRY=''
     exit 1
 fi
  
