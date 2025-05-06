@@ -15,8 +15,9 @@ sudo bash -c "echo 'CUSTOM_BOOTOPTIONS=\"ssh=pas123 dns=8.8.8.8,8.8.4.4 netscrip
     mkdir -p /boot/grml/
     wget https://ftp2.osuosl.org/pub/grml/grml32-small_2024.02.iso -P /boot/grml/
     fi
+ GRML_ENTRY= 'Grml Rescue System (grml32-small_2024.02.iso)'
+ sudo sed -i "s|^GRUB_DEFAULT=.*|GRUB_DEFAULT=\"${GRML_ENTRY}\"|" /etc/default/grub
  sudo update-grub
- sudo grub-reboot 'Grml Rescue System (grml32-small_2024.02.iso)'
   }
 
 check_status() {
