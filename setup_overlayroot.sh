@@ -78,6 +78,7 @@ enable_overlayroot() {
     fi
     echo -n > "$overlay_conf"
     echo 'overlayroot="tmpfs"' > "$overlay_conf"
+    echo 'overlayroot_blacklist="/boot"' > "$overlay_conf"
     echo "overlayroot enabled. Please reboot to take effect."
 }
 
